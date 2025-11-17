@@ -33,6 +33,5 @@ Welcome Devops Engineer! keep growing
  - How login banners work in Linux 
 
 
-##Files included
- - README.md (documentation only) 
+
 
