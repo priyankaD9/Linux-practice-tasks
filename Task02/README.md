@@ -1,48 +1,58 @@
-project:
+---
+ "Task 2 – Cron Job Automation"
 
-  name: "Task 2 – Cron Job Automation"
 
+## Overview
+As part of my Linux practice, I built a small automation project using **Bash scripting and cron jobs**.  
+The script logs the current date and time to a file and is scheduled to run automatically every 2 minutes.  
+This hands-on project helped me strengthen my skills in Linux scripting, task scheduling, and basic automation—practical skills for backend development and DevOps roles.
 
-overview: |
+## Skills & Learnings
+- Writing and executing **Bash scripts**  
+- Logging outputs to files for tracking  
+- Making scripts executable with `chmod +x`  
+- Scheduling tasks with **cron jobs** and understanding cron syntax  
+- Checking logs and verifying automated processes  
+- Using **Git & GitHub** to manage and push projects  
 
-  This project is all about automating simple tasks using Linux Bash scripting and cron jobs.
-  I created a script that logs the current date and time to a file and scheduled it to run automatically every 2 minutes using cron.
-  It was a great hands-on way to practice Linux scripting, task scheduling, and system automation—skills that are highly valued in backend development and DevOps roles.
+## How I Built It
+1. **Create the script**
+```bash
+nano time.sh
+Script content
 
-what_i_learned:
+bash
+Copy code
+#!/bin/bash
+echo "Run at: $(date)" >> /home/priyanka/cron-log.txt
+Make the script executable
 
-  - Writing Bash scripts and logging outputs to files
-  - Making scripts executable using chmod +x
-  - Scheduling tasks with cron jobs and understanding cron syntax
-  - Checking logs and verifying automated processes
-  - Basic Git commands to track changes and push projects to GitHub
+bash
+Copy code
+chmod +x time.sh
+Schedule the cron job
 
-how_i_built_it:
+bash
+Copy code
+crontab -e
+# Add this line:
+*/2 * * * * /home/priyanka/Linux-practice-tasks/time.sh
+Verify cron job
 
-  steps:
-    - step: "Create the script"
-      command: "nano time.sh"
-    - step: "Script content"
-      code: |
-        #!/bin/bash
-        echo "Run at: $(date)" >> /home/priyanka/cron-log.txt
-    - step: "Make the script executable"
-      command: "chmod +x time.sh"
-    - step: "Schedule the cron job"
-      command: |
-        crontab -e
-        # Add this line:
-        */2 * * * * /home/priyanka/Linux-practice-tasks/time.sh
-    - step: "Verify cron job"
-      command: "crontab -l"
-    - step: "Check the log"
-      command: "cat /home/priyanka/cron-log.txt"
+bash
+Copy code
+crontab -l
+Check the log
 
-outcome: |
-  - The script now runs automatically every 2 minutes
-  - Each run is recorded in cron-log.txt, demonstrating automation in action
-  - Showcases practical Linux skills useful in DevOps, backend development, and system administration
+bash
+Copy code
+cat /home/priyanka/cron-log.txt
+Outcome
+The script runs automatically every 2 minutes
 
-notes: |
-  This project is a simple yet effective way to practice automation and Linux scripting,
-  making it perfect for anyone preparing for real-world backend or DevOps tasks.
+Each execution is logged in cron-log.txt, demonstrating practical automation
+
+Showcases hands-on Linux, scripting, and DevOps-ready skills
+
+Notes
+This project is a concise but effective demonstration of automation in Linux, making it a strong example to showcase in portfolios or GitHub for recruiters looking for backend or DevOps experience.
